@@ -73,14 +73,17 @@ body {
 .card__footer {
 	margin-top: 1rem;
 	display: flex;
+	flex-wrap : wrap;
 	justify-content: space-between;
 	align-items: center;
+	position: relative;
 }
 
 .profile {
 	display: flex;
 	column-gap: 1rem;
 	align-items: center;
+	order:1;
 }
 
 .profile__container {
@@ -109,6 +112,7 @@ body {
 }
 
 .share {
+	order: 2;
   position: relative;
   border-radius: 50%;
   padding: 0.5rem;
@@ -120,19 +124,28 @@ body {
 
     
   }
+
+	&:hover ~ .share__box {
+		display: flex;
+	}
+
+	&:hover ~ .profile {
+		display: none;
+	}
+
 }
 
 .share__box {
   display: none;
   // position: absolute;
-  display: flex;
+  // display: flex;
   justify-content: space-around;
   padding: 1rem 2rem;
 
-  border-radius: 1rem;
+  // border-radius: 1rem;
   top: -6rem;
   left: -7rem;
-  width:250px;
+  width:100%;
   color: white;
   background-color: $Very_Dark_Grayish_Blue;
 
@@ -146,8 +159,6 @@ body {
     display: block;
   }
 }
-
-
 
 
 
@@ -180,9 +191,12 @@ body {
 		max-width: none;
 	}
 
-  .share:hover .share__box{
-    display: flex;
-  }
+  // .share:hover + .share__box{
+  //   display: flex;
+  // }
+	.share:hover ~ .profile {
+		display: flex;
+	}
   
   .share__box {
     display: none;
@@ -192,8 +206,8 @@ body {
     padding: 1rem 2rem;
   
     border-radius: 1rem;
-    top: -6rem;
-    left: -7rem;
+    top: -5rem;
+    left: 17.3rem;
     width:250px;
     color: white;
     background-color: $Very_Dark_Grayish_Blue;
